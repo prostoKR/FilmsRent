@@ -6,6 +6,26 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `json server install:`
+
+In new terminal window:
+npx json-server --watch data/db.json --port 8000
+
+npm install react-router-dom@5
+
+ y
+
+   Resources
+  http://localhost:8000/films
+
+  Home
+  http://localhost:8000
+
+  /films      GET       fetch all films
+  /films/{id} GET       fatch single film
+  /films POST ADD       new film
+  /films/{id} DELETE    delete film
+
 ### `npm start`
 
 Runs the app in the development mode.\
