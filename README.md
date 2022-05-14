@@ -22,7 +22,7 @@ npm install react-router-dom@5
   http://localhost:8000
 
   /films      GET       fetch all films
-  /films/{id} GET       fatch single film
+  /films/{id} GET       fetch single film
   /films POST ADD       new film
   /films/{id} DELETE    delete film
 
