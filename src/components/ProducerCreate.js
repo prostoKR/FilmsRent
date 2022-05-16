@@ -24,7 +24,7 @@ const ProducerCreate = () => {
             console.log('new producer added');
             setIsPending(false);
            // history.go(1);
-           history('/producers'); //nuorada i vieta po producerio pridejimo
+           history('/producers/'); //nuoroda i vieta po producerio pridejimo
         })
 
        //console.log(film);
@@ -67,7 +67,7 @@ const ProducerCreate = () => {
                     <option value="Robert">Robert</option>
                 </select> */}
                 {!isPending && <button>Add Producer</button>}
-                {isPending && <button disabled className="addButton">Adding film...</button>}
+                {isPending && <button disabled className="addButton">Adding producer...</button>}
                 <p>{name}</p>
                 <p>{country}</p>
                 {/* <p>{producer}</p> */}
