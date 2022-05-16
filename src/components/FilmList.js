@@ -16,7 +16,7 @@ const FilmList = ({ films, title }) => {
                     <Link to={`/films/${film.id}`}>
 
                         <h2>{film.title}</h2>
-                        <p>Wryte by  {film.producerName}</p>
+                        <p>Wryte by:  {film.producer.name}</p>
                     </Link>
                     {/* <button onClick={() => handleDelete(film.id)}>delete film</button>  */}
                     {/* pasirenka id */}

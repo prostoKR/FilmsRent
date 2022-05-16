@@ -40,7 +40,7 @@ const FilmDetails = () => {
             {film && (
                 <article>
                     <h2>{film.title}</h2>
-                    <p>Film by {film.producerName}</p>
+                    <p>Film by {film.producer.name}</p>
                     <div>{film.storyline}</div>
                     {/* <button onClick={handleClickEdit}>edit</button> */}
                     {/* <button><Link to="/edit">edit</Link></button>  */}

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 
 
@@ -29,16 +29,17 @@ const ProducerDetails = () => {
 
     return (
         <div className="film-details">
+            
             {isPending && <div>Loading...</div>}
             {error && <div>{error}</div>}
             {producer && (
                 <article>
-                    <h2>{producer.producerName}</h2>
-                    <p>Film by {producer.producerName}</p>
+                    <h2>{producer.getName}</h2>
+                    <p>Producer name:  {producer.getName}</p>
                     <div>{producer.country}</div>
-                    {/* <button onClick={handleClickEdit}>edit</button> */}
-                    {/* <button><Link to="/edit">edit</Link></button>  */}
-                    <Link to={'/edit/'+producer.id}><button>edit</button></Link>
+                    {/* <button onClick={handleClickEdit}>edit</button>  */}
+                     {/* <button><Link to="/edit">edit</Link></button>  */}
+                    {/* <Link to={'/edit/'+producer.id}><button>edit</button></Link> */}
                    
                     <button onClick={handleClick}>delete</button>
                 </article>

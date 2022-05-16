@@ -5,8 +5,9 @@ import Home from './components/Home';
 import FilmDetails from './components/FilmDetails';
 import NotFound from './components/NotFound';
 import Edit from './components/Edit';
-import CreateProducer from './components/CreateProducer';
+import ProducerCreate from './components/ProducerCreate';
 import ProducerDetails from './components/ProducerDetails';
+import ProducerAllList from "./components/ProducerAllList";
 
 
 
@@ -18,7 +19,8 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/createProducer" element={<CreateProducer />}></Route>
+          <Route path="/producerCreate" element={<ProducerCreate />}></Route>
+          <Route path="/producers" element={<ProducerAllList />}></Route>
           <Route path="/producers/:id" element={<ProducerDetails />}></Route>
           <Route path="/create" element={<Create />}></Route>
           <Route path="/films/:id" element={<FilmDetails />}></Route>

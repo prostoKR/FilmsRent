@@ -3,8 +3,8 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 
 
-const CreateProducer = () => {
-    const [producerName, setProducerName] = useState('');
+const ProducerCreate = () => {
+    const [name, setName] = useState('');
     const [country, setCountry] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useNavigate();
@@ -12,7 +12,7 @@ const CreateProducer = () => {
 
     const handleSubmit =(e) => {
         e.preventDefault();
-        const producer ={producerName, country};
+        const producer ={name, country};
 
         setIsPending(true);
 
@@ -24,7 +24,7 @@ const CreateProducer = () => {
             console.log('new producer added');
             setIsPending(false);
            // history.go(1);
-           history('/');
+           history('/producers'); //nuorada i vieta po producerio pridejimo
         })
 
        //console.log(film);
@@ -41,8 +41,8 @@ const CreateProducer = () => {
                 <input
                     type="text"
                     required
-                    value={producerName}
-                    onChange={(e) => setProducerName(e.target.value)}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                 />
                 <label>Producer is from country:</label>
                 <input
@@ -68,7 +68,7 @@ const CreateProducer = () => {
                 </select> */}
                 {!isPending && <button>Add Producer</button>}
                 {isPending && <button disabled className="addButton">Adding film...</button>}
-                <p>{producerName}</p>
+                <p>{name}</p>
                 <p>{country}</p>
                 {/* <p>{producer}</p> */}
 
@@ -78,4 +78,4 @@ const CreateProducer = () => {
     );
 }
 
-export default CreateProducer;
+export default ProducerCreate;
