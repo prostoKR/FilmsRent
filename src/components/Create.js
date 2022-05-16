@@ -1,6 +1,7 @@
 import { useState } from "react";
 //import {useHistory} from 'react-router-dom';
 import {useNavigate} from "react-router-dom"
+import useFetch from './useFetch';
 
 
 const Create = () => {
@@ -9,6 +10,7 @@ const Create = () => {
     const [producerName, setProducerName] = useState('');
     const [isPending, setIsPending] = useState(false);
     const history = useNavigate();
+    const{data: producers, isPending2, error} = useFetch('http://localhost:8000/producers');
 
 
     const handleSubmit =(e) => {
@@ -58,15 +60,18 @@ const Create = () => {
                     onChange={(e) => setProducerName(e.target.value)}
                 >
                     <option value=""></option>
-                    <option value="Victor">Victor</option>
+                    {/* <option value="Victor">Victor</option>
                     <option value="Robert">Robert</option>
-                    <option value="Konstantin">Konstantin</option>
+                    <option value="Konstantin">Konstantin</option> */}
+                    {producers&&producers.map((producer) => (<option value={producer.name}>{producer.name}</option>
+                    ))}
                 </select>
                 {!isPending && <button>Add Film</button>}
                 {isPending && <button disabled className="addButton">Adding film...</button>}
                 <p>{title}</p>
                 <p>{storyline}</p>
                 <p>{producerName}</p>
+                
 
                 
             </form>
