@@ -2,19 +2,20 @@ import { useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 // import { Link } from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 
 const ProducerDetails = () => {
     const { id } = useParams();
     const history = useNavigate();
-   const { producer, error, isPending } = useFetch('http://localhost:8000/producers/' + id);// po klaustuku produsers
+   const {data: producer, error, isPending } = useFetch('http://localhost:8000/producers/' + id);// po klaustuku produsers
   
     const handleClick = () => {
         fetch('http://localhost:8000/producers/'+ producer.id, {
             method: 'DELETE'
         }).then(() => {
-                history('/');
+                history('/producers');
         });
     }
 
@@ -34,12 +35,13 @@ const ProducerDetails = () => {
             {error && <div>{error}</div>}
             {producer && (
                 <article>
-                    <h2>{producer.getName}</h2>
-                    <p>Producer name:  {producer.getName}</p>
-                    <div>{producer.country}</div>
+                    <h2>{producer.name}</h2>
+                    <p>Producer name:  {producer.name}</p>
+                    <p>Producer country:  {producer.country}</p>
+                    {/* <div>{producer.country}</div> */}
                     {/* <button onClick={handleClickEdit}>edit</button>  */}
                      {/* <button><Link to="/edit">edit</Link></button>  */}
-                    {/* <Link to={'/edit/'+producer.id}><button>edit</button></Link> */}
+                    <Link to={'/producerEdit/'+producer.id}><button>edit</button></Link>
                    
                     <button onClick={handleClick}>delete</button>
                 </article>
