@@ -1,32 +1,30 @@
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import useFetch from "./useFetch";
 
 
-const ProducerEdit = ({ films }) => {
+
+const ProducerEdit = ({ producers }) => {
     let { id } = useParams();
     
-    // let film = films[id - 1];
-    let isPending = false;
-    const [title, setTitle] = useState('');
-    const [storyline, setStoryline] = useState('');
-    const [producer, setProducer] = useState('');
-
-    // const updateFilm() = () => {
-    function updateFilm(e) {
+   
+    let isPending = true;
+    const [name, setName] = useState('');
+    const [country, setCountry] = useState('');
+    
+    function updateProducer(e) {
         e.preventDefault();
-        let updFilm = { title, storyline, producer };
+        let updProducer = { name, country };
 
         const requestOption = {
             method: 'PUT',
             headers: { 'Content-Type':'application/json'},
-            body: JSON.stringify(updFilm)
+            body: JSON.stringify(updProducer)
         };
 
-        fetch('http://localhost:8000/films/' + id, requestOption)
+        fetch('http://localhost:8000/producers/' + id, requestOption)
             .then(response => response.json())
             .then(data => {
-                alert('Filmas atnaujintas');
+                alert('Produserio duomenys atnaujintos');
             })
             .catch((error) => {
                 console.error('Error:', error);
@@ -38,28 +36,28 @@ const ProducerEdit = ({ films }) => {
 
     return (
         <div className="edit">
-            Edit form
+            
             <>
-                <h1>Create New Film</h1>
-                <form onSubmit={updateFilm}>
-                    <label> Film title:</label><br/>
+                <h1>Create New Producer</h1>
+                <form onSubmit={updateProducer}>
+                    <label> Producer name:</label><br/>
                     <input
                         type="text"
                         id="film-title"
                         name="film-title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                     <div>
-                        <label>Film storyline:</label><br />
+                        <label>Producer live in country:</label><br />
                         <textarea
                             name="film-storyline"
                             id="film-storyline"
-                            value={storyline}
-                            onChange={(e) => setStoryline(e.target.value)}
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
                         ></textarea>
                     </div>
-                    <div>
+                    {/* <div>
                         <label>Film producer:</label><br />
 
                         <select
@@ -72,13 +70,13 @@ const ProducerEdit = ({ films }) => {
                             <option value="Victor">Victor</option>
                             <option value="Robert">Robert</option>
                         </select>
-                    </div>
+                    </div> */}
 
                     {!isPending && <button>Save</button>}
-                    {isPending && <button disabled className="addButton">Adding film...</button>}
-                    <p>{title}</p>
-                    <p>{storyline}</p>
-                    <p>{producer}</p>
+                    {isPending && <button disabled className="addButton">Adding producer...</button>}
+                    <p>{name}</p>
+                    <p>{country}</p>
+                    
 
 
                 </form>
