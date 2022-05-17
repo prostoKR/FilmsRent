@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/producerCreate" element={<ProducerCreate />}></Route>
-          {/* <Route path="/producerEdit/:id" element={<ProducerEdit />}></Route> */}
+          <Route path="/producerEdit/:id" element={<ProducerEdit />}></Route>
           <Route path="/producers" element={<ProducerAllList />}></Route>
           <Route path="/producers/:id" element={<ProducerDetails />}></Route>
           <Route path="/create" element={<Create />}></Route>

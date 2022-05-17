@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 const FilmList = ({ films, title }) => {
 
 
@@ -7,6 +8,15 @@ const FilmList = ({ films, title }) => {
     // const title = props.title;
 
     // console.log(props.films);
+    const handleClick = () => {
+        fetch('http://localhost:8000/films/'+ films.id, {
+            method: 'DELETE'
+        }).then(() => {
+                history('/');
+        });
+    }
+
+
 
     return (
         <div className="film-list">
@@ -17,8 +27,11 @@ const FilmList = ({ films, title }) => {
 
                         <h2>{film.title}</h2>
                         <p>Wryte by:  {film.producer.name}</p>
+                        <button onClick={() => handleClick(films.id)}>delete film</button>
+                        
                     </Link>
-                    {/* <button onClick={() => handleDelete(film.id)}>delete film</button>  */}
+                    
+                    
                     {/* pasirenka id */}
                     {/* <p>Description {blog.storyline}</p> */}
 
