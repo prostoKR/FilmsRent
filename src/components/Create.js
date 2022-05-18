@@ -5,6 +5,8 @@ import useFetch from './useFetch';
 
 
 const Create = () => {
+    // const [films,setFilms] = useState([]);
+
     const [title, setTitle] = useState('');
     const [storyline, setStoryline] = useState('');
     const [producerName, setProducerName] = useState('');

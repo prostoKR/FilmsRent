@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
 
 
 const FilmList = ({ films, title }) => {
-
+    const history = useNavigate();
 
     // const films = props.films;
     // const title = props.title;
 
     // console.log(props.films);
+
     const handleClick = () => {
         fetch('http://localhost:8000/films/'+ films.id, {
             method: 'DELETE'
         }).then(() => {
-                history('/');
+               history('/');
         });
     }
 
